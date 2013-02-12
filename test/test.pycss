@@ -1,0 +1,17 @@
+$green: '#00ff00'
+$width: 50%
+
+
+#asd {
+	background-color: $green;
+}
+
+#qwe {
+	color: $green;
+	width: $width;
+}
+
+#zxc {
+	padding-left: $width;
+}
+
