@@ -69,7 +69,7 @@ if __name__ == "__main__":
     parser.add_argument( 'input', nargs='?', default='.',
                         help='file to convert or directory in which to convert all pycss files (default: the current directory)' )
     parser.add_argument( '-w', '--watch', action='store_true',
-                        help='if included, the input is continuously polled for changes and updated' )
+                        help='if included, the input is regularly polled for changes and updated' )
     args = parser.parse_args()
     
     main( args.input, args.watch )
