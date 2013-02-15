@@ -52,12 +52,12 @@ pycss follows the same basic syntax as CSS. Variables are denoted using `$`. The
 Running pycss
 -------------
 
-pycss.py [-h] [-w] [input]
+`pycss.py [-h] [-w] [input]`
 
 #### Options
 
--h : shows help message
+`-h` : shows help message
 
--w, --watch : if included, the input is regularly polled for changes and updated
+`-w`, `--watch` : if included, the input is regularly polled for changes and updated
 
-input : the file or directory to parse. Defaults to the current directory.
+`input` : the file or directory to parse. Defaults to the current directory.
