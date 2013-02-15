@@ -1,7 +1,7 @@
 pycss
 =====
 
-A Python based CSS generator with variables and auto browser-prefixing. It creates a valid CSS file for every pycss file it processes. It can be run on an individual `.pycss` file or a directory where it will process all `.pycss' files.
+A Python based CSS generator with variables and auto browser-prefixing. It creates a valid CSS file for every pycss file it processes. It can be run on an individual pycss file or a directory where it will process all files with the pycss extension.
 
 Installation
 ------------
@@ -11,9 +11,9 @@ TODO
 Syntax
 ------
 
-pycss follows the same basic syntax as css. Variables are denotated using `$`. The browser-prefixing occurs automaticaly on any css rule which requires it.
+pycss follows the same basic syntax as CSS. Variables are denotated using `$`. The browser-prefixing occurs automaticaly on any CSS rule which requires it.
 
-#### Example pycss file
+#### Example pycss input file
 
 	$green: '#00ff00'
 	$width: 50%
@@ -29,7 +29,7 @@ pycss follows the same basic syntax as css. Variables are denotated using `$`. T
 		backface-visibility: hidden;
 	}
 
-#### Output css file
+#### Example CSS output file
 
 	#example {
 		background-color: '#00ff00';
