@@ -5,8 +5,15 @@ Created on 2013-02-12
 '''
 import argparse
 import os
+import signal
+import sys
 from time import sleep
 import cssparse
+
+
+def signal_handler(signal, frame):
+    print 'Goodbye'
+    sys.exit(0)
 
 
 def ispycss( f ):
@@ -50,6 +57,11 @@ def main( path, watch ):
         files[:] = [os.path.join( path, f ) for f in dirfiles]
     else:
         print "Not a valid file or directory."
+        return
+         
+    # Add an interupt handler for exiting the program
+    signal.signal( signal.SIGINT, signal_handler )
+         
          
     filecache = [0] * len( files )
     
