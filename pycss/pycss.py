@@ -17,7 +17,7 @@ def ispycss( f ):
 
 
 def parsefiles( files, filecache ):
-    for i, f in enumerate( files ):       
+    for i, f in enumerate( files ):
         modtime = os.path.getmtime( f ) 
         if modtime > filecache[i]:
             filecache[i] = modtime
@@ -35,22 +35,19 @@ def parsefiles( files, filecache ):
 def main( path, watch ):
     
     files = []
+    path = os.path.abspath( path )
     
     # Check if valid file or directory specified
     if os.path.isfile( path ) and ispycss( path ):
         print "Loading file:", path
         
         files.append( path );
-    elif os.path.isdir( path ):
-        # Make sure there is a trailing slash
-        if not path.endswith( '/' ):
-            path = path + '/'
-        
+    elif os.path.isdir( path ):          
         print "Loading directory:", path
         
         # Load all pycss files and prepend the path 
         dirfiles = filter( ispycss, os.listdir( path ) )
-        files[:] = [path + f for f in dirfiles]
+        files[:] = [os.path.join( path, f ) for f in dirfiles]
     else:
         print "Not a valid file or directory."
          
