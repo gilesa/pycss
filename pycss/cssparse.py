@@ -5,15 +5,26 @@ def parse( f ):
     cssvars = {}
     
     for line in f:
+        # Save variable definitions
         if line.startswith( '$' ):
             splitline = line.split( ':' )
             
             if len( splitline ) == 2:
-                cssvars.update( { splitline[0]: splitline[1].strip() } )
+                cssvars.update( { splitline[0].strip(): splitline[1].strip()[:-1] } )
         else:
             # Variables
             if '$' in line:
-                var = line[line.find( '$' ):line.find( ';' )]
+                start = line.find( '$' )
+                
+                # Find end position
+                semicolon = line.find( ';', start )
+                space = line.find( ' ', start )
+                if space != -1:
+                    end = space
+                else:
+                    end = semicolon
+                    
+                var = line[start:end]
                 if var in cssvars:
                     line = line.replace( var, cssvars[var] )
                     
@@ -28,5 +39,5 @@ def parse( f ):
             
             
             output.append( line )
-        
+                    
     return "".join( output )
