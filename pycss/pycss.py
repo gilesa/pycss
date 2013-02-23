@@ -68,7 +68,7 @@ def main( path, watch ):
     if watch:
         while True:
             parsefiles( files, filecache )
-            sleep( 5 )
+            sleep( 3 )
     else:
         parsefiles( files, filecache )
              
